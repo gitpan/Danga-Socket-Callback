@@ -1,4 +1,4 @@
-# $Id: /mirror/perl/Danga-Socket-Callback/trunk/lib/Danga/Socket/Callback.pm 7093 2007-05-08T10:23:52.027796Z daisuke  $
+# $Id: /mirror/perl/Danga-Socket-Callback/trunk/lib/Danga/Socket/Callback.pm 7146 2007-05-09T18:04:37.920461Z daisuke  $
 #
 # Copyright (c) 2007 Daisuke Maki <daisuke@endeworks.jp>
 # All rights reserved.
@@ -9,7 +9,7 @@ use warnings;
 use base qw(Danga::Socket);
 use fields qw(on_read_ready on_write_ready on_error on_signal_hup context);
 
-our $VERSION = '0.01';
+our $VERSION = '0.011';
 
 sub new
 {
@@ -79,6 +79,7 @@ Danga::Socket::Callback - Use Danga::Socket From Callbacks
 
   my $danga = Danga::Socket::Callback->new(
     handle         => $socket,
+    context        => { ... },
     on_read_ready  => sub { ... },
     on_write_ready => sub { ... },
     on_error       => sub { ... },
@@ -114,7 +115,36 @@ classes:
 
 =head2 new
 
-Creates a new instance of Danga::Socket::Callback.
+Creates a new instance of Danga::Socket::Callback. Takes the following
+parameters:
+
+=over 4
+
+=item handle
+
+The socket/handle to read from.
+
+=item context
+
+Arbitrary data to be shared between your app and Danga::Socket::Callback.
+
+=item on_read_ready
+
+Specify the code reference to be fired when the socket is ready to be read
+
+=item on_write_ready
+
+Specify the code reference to be fired when the socket is ready to be written
+
+=item on_error
+
+Specify te code reference to be fired when there was an error
+
+=item on_signal_hup
+
+Specify the code reference to be fired when a HUP signal is received.
+
+=back
 
 =head2 event_read
 

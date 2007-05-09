@@ -1,5 +1,9 @@
 Changes
 =======
 
+0.011 - Thu 10 May 2007
+  - Tweak documentation and mention the "context" key
+  - Remove execution bit from Makefile.PL
+
 0.01 - Tue 08 May 2007
   - Initial release.
