@@ -1,4 +1,4 @@
-# $Id: /mirror/perl/Danga-Socket-Callback/trunk/lib/Danga/Socket/Callback.pm 7146 2007-05-09T18:04:37.920461Z daisuke  $
+# $Id: /mirror/perl/Danga-Socket-Callback/trunk/lib/Danga/Socket/Callback.pm 31630 2007-12-01T13:40:15.380189Z daisuke  $
 #
 # Copyright (c) 2007 Daisuke Maki <daisuke@endeworks.jp>
 # All rights reserved.
@@ -9,7 +9,7 @@ use warnings;
 use base qw(Danga::Socket);
 use fields qw(on_read_ready on_write_ready on_error on_signal_hup context);
 
-our $VERSION = '0.011';
+our $VERSION = '0.01200';
 
 sub new
 {
