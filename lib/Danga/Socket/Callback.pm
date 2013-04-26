@@ -1,15 +1,10 @@
-# $Id: /mirror/perl/Danga-Socket-Callback/trunk/lib/Danga/Socket/Callback.pm 31630 2007-12-01T13:40:15.380189Z daisuke  $
-#
-# Copyright (c) 2007 Daisuke Maki <daisuke@endeworks.jp>
-# All rights reserved.
-
 package Danga::Socket::Callback;
 use strict;
 use warnings;
 use base qw(Danga::Socket);
 use fields qw(on_read_ready on_write_ready on_error on_signal_hup context);
 
-our $VERSION = '0.01200';
+our $VERSION = '0.013';
 
 sub new
 {
@@ -18,7 +13,7 @@ sub new
     $self = fields::new($self) unless ref $self;
     $self->SUPER::new($args{handle});
 
-    foreach my $field qw(on_read_ready on_write_ready on_error on_signal_hup context) {
+    foreach my $field (qw(on_read_ready on_write_ready on_error on_signal_hup context)) {
         $self->{$field} = $args{$field} if $args{$field}
     }
 
